@@ -313,6 +313,17 @@ def _add_licenses_manually(licenses: list[_License]) -> None:
         #
     ]
 
+    if sys.platform in ("linux", "win32"):
+        licenses.append(
+            _License(
+                package_name="hwloc",
+                package_version=None,
+                license_name="BSD 3-clause license",
+                license_text="https://raw.githubusercontent.com/open-mpi/hwloc/master/COPYING",
+                license_text_type="remote_address",
+            )
+        )
+
 
 def _patch_licenses_manually(licenses: list[_License]) -> None:
     """手動でライセンス情報を修正する。"""
